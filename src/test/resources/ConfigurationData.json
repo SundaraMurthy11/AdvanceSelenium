@@ -1,0 +1,26 @@
+
+[{
+	"UserName": "admin",
+	"passsword" : "admin@123",
+	"WaitTime": 15,
+	"Env":[
+		"TE","DE","UAT"
+	]
+},
+{
+	"UserName": "admin1",
+	"passsword1" : "admin1@123",
+	"WaitTime1": 20,
+	"Env1":[
+		"TE1","DE1","UAT1"
+	]
+},
+{
+	"UserName": "admin2",
+	"passsword2" : "admin2@123",
+	"WaitTime2": 25,
+	"Env2":[
+		"TE2","DE2","UAT2"
+	]
+}
+]
