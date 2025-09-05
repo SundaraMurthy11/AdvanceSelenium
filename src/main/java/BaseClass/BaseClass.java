@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
@@ -61,18 +62,17 @@ public class BaseClass {
 		
 	String browser=putil.getDataFromPropertiesFile("browser");
 	if(browser.equalsIgnoreCase("edge")) {
-		WebDriverManager.edgedriver().setup();
-//		   // Load msedgedriver.exe from resources folder
-//		  URL resource = getClass().getClassLoader().getResource("msedgedriver.exe");
-//		    if (resource == null) {
-//		        throw new RuntimeException("msedgedriver.exe not found in resources folder!");
-//		    }
-//		    
-//		    File driverFile = new File(resource.getFile());
-//		    String driverPath = driverFile.getAbsolutePath();
-//
-//		    System.setProperty("webdriver.edge.driver", driverPath);
-		    driver = new EdgeDriver();
+		  WebDriverManager.edgedriver().setup();
+
+		    EdgeOptions options = new EdgeOptions();
+		    options.addArguments("--headless=new");       // headless mode for CI
+		    options.addArguments("--disable-gpu");        // required in CI
+		    options.addArguments("--no-sandbox");         // avoid sandboxing issues
+		    options.addArguments("--disable-dev-shm-usage"); // fix memory issues in containers
+		    options.addArguments("--window-size=1920,1080");
+
+		    driver = new EdgeDriver(options);
+		
 	} else 	if(browser.equals("chrome")) {
 		driver=new ChromeDriver();
 		
