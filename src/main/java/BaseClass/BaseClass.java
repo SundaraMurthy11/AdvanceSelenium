@@ -62,16 +62,16 @@ public class BaseClass {
 	String browser=putil.getDataFromPropertiesFile("browser");
 	if(browser.equalsIgnoreCase("edge")) {
 		WebDriverManager.edgedriver().setup();
-		   // Load msedgedriver.exe from resources folder
-		  URL resource = getClass().getClassLoader().getResource("msedgedriver.exe");
-		    if (resource == null) {
-		        throw new RuntimeException("msedgedriver.exe not found in resources folder!");
-		    }
-		    
-		    File driverFile = new File(resource.getFile());
-		    String driverPath = driverFile.getAbsolutePath();
-
-		    System.setProperty("webdriver.edge.driver", driverPath);
+//		   // Load msedgedriver.exe from resources folder
+//		  URL resource = getClass().getClassLoader().getResource("msedgedriver.exe");
+//		    if (resource == null) {
+//		        throw new RuntimeException("msedgedriver.exe not found in resources folder!");
+//		    }
+//		    
+//		    File driverFile = new File(resource.getFile());
+//		    String driverPath = driverFile.getAbsolutePath();
+//
+//		    System.setProperty("webdriver.edge.driver", driverPath);
 		    driver = new EdgeDriver();
 	} else 	if(browser.equals("chrome")) {
 		driver=new ChromeDriver();
