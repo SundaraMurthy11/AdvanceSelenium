@@ -25,6 +25,7 @@ import com.beust.jcommander.Parameter;
 import PageObjectModel.HomePage;
 import PageObjectModel.LoginPage;
 import PropertiesFileUtility.PropertiesUtility;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
 
@@ -60,6 +61,7 @@ public class BaseClass {
 		
 	String browser=putil.getDataFromPropertiesFile("browser");
 	if(browser.equalsIgnoreCase("edge")) {
+		WebDriverManager.edgedriver().setup();
 		   // Load msedgedriver.exe from resources folder
 		  URL resource = getClass().getClassLoader().getResource("msedgedriver.exe");
 		    if (resource == null) {
