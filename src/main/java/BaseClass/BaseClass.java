@@ -58,7 +58,7 @@ public class BaseClass {
 		
 	String browser=putil.getDataFromPropertiesFile("browser");
 	if(browser.equals("edge")) {
-		System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
+		//System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
 		driver=new EdgeDriver();
 		
 	} else 	if(browser.equals("chrome")) {
