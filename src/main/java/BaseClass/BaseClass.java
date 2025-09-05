@@ -1,6 +1,8 @@
 package BaseClass;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -57,10 +59,18 @@ public class BaseClass {
 
 		
 	String browser=putil.getDataFromPropertiesFile("browser");
-	if(browser.equals("edge")) {
-		//System.setProperty("webdriver.edge.driver", "C:\\Drivers\\msedgedriver.exe");
-		driver=new EdgeDriver();
-		
+	if(browser.equalsIgnoreCase("edge")) {
+		   // Load msedgedriver.exe from resources folder
+		  URL resource = getClass().getClassLoader().getResource("msedgedriver.exe");
+		    if (resource == null) {
+		        throw new RuntimeException("msedgedriver.exe not found in resources folder!");
+		    }
+		    
+		    File driverFile = new File(resource.getFile());
+		    String driverPath = driverFile.getAbsolutePath();
+
+		    System.setProperty("webdriver.edge.driver", driverPath);
+		    driver = new EdgeDriver();
 	} else 	if(browser.equals("chrome")) {
 		driver=new ChromeDriver();
 		
