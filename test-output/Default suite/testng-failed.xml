@@ -5,8 +5,8 @@
     <classes>
       <class name="DataDrivenTesting.CreateCampaignUsingMandatoryTest">
         <methods>
-          <include name="afterTest"/>
           <include name="afterSuite"/>
+          <include name="afterTest"/>
           <include name="beforeSuite"/>
           <include name="beforeMethod"/>
           <include name="afterMethod"/>

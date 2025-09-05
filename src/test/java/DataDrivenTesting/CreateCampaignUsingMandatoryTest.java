@@ -26,6 +26,7 @@ public class CreateCampaignUsingMandatoryTest extends BaseClass{
 	String campaignName=	eutil.getExcelCellData("Campaign", 1, 1);
 	String targetSizes=	eutil.getExcelCellData("Campaign", 1, 2);
 
+	Thread.sleep(8000);
     HomePage hpage= new HomePage(driver);
     hpage.getCampaign().click();
     hpage.getCreateCampaign().click();
